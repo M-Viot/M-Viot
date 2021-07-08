@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Remboursement index{% endblock %}
+
+{% block body %}
+    <h1>Remboursement index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>BeneficiaireReglement</th>
+                <th>MontantRemboursement</th>
+                <th>RefReglement</th>
+                <th>DateReglement</th>
+                <th>IsBloque</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for remboursement in remboursements %}
+            <tr>
+                <td>{{ remboursement.id }}</td>
+                <td>{{ remboursement.beneficiaireReglement }}</td>
+                <td>{{ remboursement.montantRemboursement }}</td>
+                <td>{{ remboursement.refReglement }}</td>
+                <td>{{ remboursement.dateReglement | date("m/d/Y") }}</td>
+                <td>{{ remboursement.isBloque ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('remboursement_show', {'id': remboursement.id}) }}">show</a>
+                    <a href="{{ path('remboursement_edit', {'id': remboursement.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('remboursement_new') }}">Create new</a>
+{% endblock %}

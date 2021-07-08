@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}RemboursementDetail{% endblock %}
+
+{% block body %}
+    <h1>RemboursementDetail</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ remboursement_detail.id }}</td>
+            </tr>
+            <tr>
+                <th>BeneficiaireReglement</th>
+                <td>{{ remboursement_detail.beneficiaireReglement }}</td>
+            </tr>
+            <tr>
+                <th>BeneficiaireSoin</th>
+                <td>{{ remboursement_detail.beneficiaireSoin }}</td>
+            </tr>
+            <tr>
+                <th>ComplementCgam</th>
+                <td>{{ remboursement_detail.complementCgam }}</td>
+            </tr>
+            <tr>
+                <th>DateActe</th>
+                <td>{{ remboursement_detail.dateActe | date("m/d/Y")}}</td>
+            </tr>
+            <tr>
+                <th>FraisReel</th>
+                <td>{{ remboursement_detail.fraisReel }}</td>
+            </tr>
+            <tr>
+                <th>IdRemboursement</th>
+                <td>{{ remboursement_detail.idRemboursement }}</td>
+            </tr>
+            <tr>
+                <th>MontantRemboursement</th>
+                <td>{{ remboursement_detail.montantRemboursement }}</td>
+            </tr>
+            <tr>
+                <th>RemboursementSecuriteSociale</th>
+                <td>{{ remboursement_detail.remboursementSecuriteSociale }}</td>
+            </tr>
+            <tr>
+                <th>ResteCharge</th>
+                <td>{{ remboursement_detail.resteCharge }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{{ remboursement_detail.statut }}</td>
+            </tr>
+            <tr>
+                <th>TauxSecuriteSociale</th>
+                <td>{{ remboursement_detail.tauxSecuriteSociale }}</td>
+            </tr>
+            <tr>
+                <th>TypeActe</th>
+                <td>{{ remboursement_detail.typeActe }}</td>
+            </tr>
+            <tr>
+                <th>RefReglement</th>
+                <td>{{ remboursement_detail.refReglement }}</td>
+            </tr>
+            <tr>
+                <th>Autre_mutuelle</th>
+                <td>{{ remboursement_detail.autreMutuelle }}</td>
+            </tr>
+            <tr>
+                <th>DecompteDispo</th>
+                <td>{{ remboursement_detail.decompteDispo ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>IsBloque</th>
+                <td>{{ remboursement_detail.isBloque ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('remboursement_detail_index') }}">back to list</a>
+
+    <a href="{{ path('remboursement_detail_edit', {'id': remboursement_detail.id}) }}">edit</a>
+
+    {{ include('remboursement_detail/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Remboursement{% endblock %}
+
+{% block body %}
+    <h1>Remboursement</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ remboursement.id }}</td>
+            </tr>
+            <tr>
+                <th>BeneficiaireReglement</th>
+                <td>{{ remboursement.beneficiaireReglement }}</td>
+            </tr>
+            <tr>
+                <th>MontantRemboursement</th>
+                <td>{{ remboursement.montantRemboursement }}</td>
+            </tr>
+            <tr>
+                <th>RefReglement</th>
+                <td>{{ remboursement.refReglement }}</td>
+            </tr>
+            <tr>
+                <th>DateReglement</th>
+                <td>{{ remboursement.dateReglement | date("m/d/Y") }}</td>
+            </tr>
+            <tr>
+                <th>IsBloque</th>
+                <td>{{ remboursement.isBloque ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('remboursement_index') }}">back to list</a>
+
+    <a href="{{ path('remboursement_edit', {'id': remboursement.id}) }}">edit</a>
+
+    {{ include('remboursement/_delete_form.html.twig') }}
+{% endblock %}
